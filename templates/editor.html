@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studio — TYPE LAB</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="editor-page">
+
+    <header class="studio-header">
+        <a href="/" class="logo">TYPE<span>LAB.</span></a>
+        <div class="studio-title">CREATIVE STUDIO / 001</div>
+        <a href="/" class="back-link">EXIT STUDIO ↗</a>
+    </header>
+
+    <main class="studio-layout">
+
+        <aside class="control-panel">
+            <div class="panel-heading">
+                <span>DESIGN SETTINGS</span>
+                <span class="panel-number">01 — 08</span>
+            </div>
+
+            <div class="control-group">
+                <label>YOUR TEXT</label>
+                <textarea id="textInput" rows="3">TYPE IS ART.</textarea>
+            </div>
+
+            <div class="control-group">
+                <label>FONT FAMILY</label>
+                <select id="fontFamily">
+                    <option value="Arial">Arial</option>
+                    <option value="Georgia">Georgia</option>
+                    <option value="Impact">Impact</option>
+                    <option value="Courier New">Courier New</option>
+                    <option value="Times New Roman">Times New Roman</option>
+                    <option value="Verdana">Verdana</option>
+                    <option value="Trebuchet MS">Trebuchet MS</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label>FONT SIZE <span id="sizeValue">80px</span></label>
+                <input type="range" id="fontSize" min="20" max="180" value="80">
+            </div>
+
+            <div class="control-group">
+                <label>FONT WEIGHT</label>
+                <select id="fontWeight">
+                    <option value="300">Light</option>
+                    <option value="400">Regular</option>
+                    <option value="600">Semi Bold</option>
+                    <option value="700" selected>Bold</option>
+                    <option value="900">Black</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label>LETTER SPACING <span id="spacingValue">0px</span></label>
+                <input type="range" id="letterSpacing" min="-10" max="30" value="0">
+            </div>
+
+            <div class="control-group">
+                <label>TEXT ALIGNMENT</label>
+                <div class="button-group">
+                    <button class="align-btn active" data-align="left">LEFT</button>
+                    <button class="align-btn" data-align="center">CENTER</button>
+                    <button class="align-btn" data-align="right">RIGHT</button>
+                </div>
+            </div>
+
+            <div class="control-group color-group">
+                <label>TEXT COLOR</label>
+                <input type="color" id="textColor" value="#ffffff">
+            </div>
+
+            <div class="control-group color-group">
+                <label>BACKGROUND COLOR</label>
+                <input type="color" id="bgColor" value="#171717">
+            </div>
+
+            <div class="control-group">
+                <label>ROTATION <span id="rotateValue">0°</span></label>
+                <input type="range" id="rotation" min="-30" max="30" value="0">
+            </div>
+
+            <div class="control-group">
+                <label>ANIMATION</label>
+                <select id="animation">
+                    <option value="none">None</option>
+                    <option value="float">Floating</option>
+                    <option value="pulse">Pulse</option>
+                    <option value="shake">Shake</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label>TEXT SHADOW</label>
+                <select id="shadow">
+                    <option value="none">None</option>
+                    <option value="soft">Soft Shadow</option>
+                    <option value="strong">Strong Shadow</option>
+                    <option value="glow">Glow</option>
+                </select>
+            </div>
+
+            <div class="panel-actions">
+                <button id="saveBtn" class="save-button">SAVE PROJECT</button>
+                <button id="resetBtn" class="reset-button">RESET DESIGN</button>
+            </div>
+        </aside>
+
+        <section class="canvas-area">
+            <div class="canvas-top">
+                <span>LIVE PREVIEW</span>
+                <span>1080 × 1080</span>
+            </div>
+
+            <div id="canvas">
+                <div id="designText">TYPE IS ART.</div>
+            </div>
+
+            <div class="canvas-bottom">
+                <span>YOUR CREATIVE SPACE</span>
+                <button id="downloadBtn">DOWNLOAD PNG ↗</button>
+            </div>
+        </section>
+
+        <aside class="works-panel">
+            <div class="panel-heading">
+                <span>MY WORKS</span>
+                <span class="panel-number">SAVED</span>
+            </div>
+
+            <p class="works-description">
+                Your saved typography designs will appear here.
+            </p>
+
+            <div id="worksList"></div>
+
+            <div class="works-footer">
+                TYPE LAB / YOUR PERSONAL STUDIO
+            </div>
+        </aside>
+
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="{{ url_for('static', filename='editor.js') }}"></script>
+
+</body>
+</html>
